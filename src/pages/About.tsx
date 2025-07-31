@@ -7,12 +7,12 @@ const About = () => {
   const certifications = [
     { name: "Educação Física", institution: "Universidade de Marília", year: "Graduando" },
     { name: "Experiência com Atletas", institution: "Treinamento Especializado", year: "Treinador" },
-    { name: "Praticante de Musculação", institution: "Experiência Pessoal", year: "10+ Anos" },
+    { name: "5°Congresso Brasileiro de Ed.Física", institution: "Especialização em Alongamento", year: "Cursado" },
   ];
 
   const achievements = [
     { icon: Award, title: "Atletas Treinados", description: "Mister Olimpia Amador ; Muscle Content" },
-    { icon: Target, title: "10+ Anos", description: "Praticando musculação" },
+    { icon: Target, title: "7+ Anos", description: "Praticando musculação" },
     { icon: BookOpen, title: "Sempre Estudando", description: "Conhecimento atualizado" },
   ];
 
@@ -49,7 +49,7 @@ const About = () => {
             </span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Há mais de uma década transformando vidas através do treinamento personalizado. 
+            Transformando vidas através do treinamento personalizado. 
             Minha paixão pelo fitness e dedicação aos resultados me levaram a me especializar em musculação e condicionamento físico.
           </p>
         </section>
@@ -83,21 +83,17 @@ const About = () => {
             </Button>
           </div>
           <div className="relative">
-            <Card className="p-8 bg-gradient-to-br from-primary/10 to-secondary/10">
-              <CardContent className="pt-6">
-                <div className="text-center">
-                  <div className="w-80 h-80 mx-auto mb-6 overflow-hidden rounded-full shadow-lg">
-                    <img 
-                      src="/images/Bruno Ft.jpg" 
-                      alt="Bruno Ortigosa - Personal Trainer na academia" 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2">Bruno Ortigosa</h3>
-                  <p className="text-muted-foreground">Personal Trainer & Coach</p>
-                </div>
-              </CardContent>
-            </Card>
+            <div className="text-center">
+              <div className="w-96 h-96 mx-auto mb-6 overflow-hidden rounded-full shadow-lg">
+                <img 
+                  src="/images/Bruno Ft.jpg" 
+                  alt="Bruno Ortigosa - Personal Trainer na academia" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-2xl font-bold mb-2">Bruno Ortigosa</h3>
+              <p className="text-muted-foreground">Personal Trainer & Coach</p>
+            </div>
           </div>
         </section>
 

@@ -85,7 +85,7 @@ const Navbar = () => {
               <div className="px-3 py-2">
                 <Button 
                   className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90"
-                  onClick={() => window.open('https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20agendar%20uma%20avaliação%20gratuita!', '_blank')}
+                  onClick={() => window.open('https://wa.me/5514999031513?text=Olá,%20gostaria%20de%20agendar%20uma%20avaliação%20gratuita!', '_blank')}
                 >
                   Agendar Avaliação
                 </Button>

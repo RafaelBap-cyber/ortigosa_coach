@@ -1,25 +1,9 @@
-import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { MessageCircle, Phone, Mail, MapPin, Clock, Calendar, Send, Instagram } from "lucide-react";
+import { MessageCircle, Phone, Mail, MapPin, Clock, Calendar, Instagram } from "lucide-react";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    goal: "",
-    message: ""
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
-  };
 
   const contactInfo = [
     {
@@ -41,7 +25,7 @@ const Contact = () => {
       icon: Mail,
       title: "E-mail",
       description: "Contato formal",
-      value: "contato@fitcoach.com",
+      value: "brunobaptistaortigosa@gmail.com",
       action: "Enviar E-mail"
     },
     {
@@ -89,7 +73,7 @@ const Contact = () => {
                 </div>
                 <h3 className="font-semibold mb-1">{contact.title}</h3>
                 <p className="text-sm text-muted-foreground mb-2">{contact.description}</p>
-                <p className="font-medium mb-4">{contact.value}</p>
+                <p className="font-medium mb-4 text-center text-sm whitespace-nowrap overflow-hidden">{contact.value}</p>
                 <Button 
                   variant={contact.primary ? "default" : "outline"} 
                   size="sm" 
@@ -100,7 +84,11 @@ const Contact = () => {
                     } else if (contact.title === "Instagram") {
                       window.open('https://www.instagram.com/bruno_ortigosa', '_blank');
                     } else if (contact.title === "E-mail") {
-                      window.open('mailto:contato@brunoortigosa.com?subject=Interesse%20em%20Personal%20Training', '_self');
+                      const subject = encodeURIComponent('Interesse em Personal Training');
+                      const body = encodeURIComponent('Olá Bruno,\n\nGostaria de conversar sobre seus serviços de personal training.\n\nAguardo seu retorno.\n\nAtenciosamente,');
+                      window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=brunobaptistaortigosa@gmail.com&su=${subject}&body=${body}`, '_blank');
+                    } else if (contact.title === "Localização") {
+                      window.open('https://maps.google.com/?q=R.+Estados+Unidos,+1010+-+Jardim+America,+Tupã+-+SP,+17605-253', '_blank');
                     }
                   }}
                 >
@@ -111,85 +99,9 @@ const Contact = () => {
           ))}
         </section>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-          {/* Contact Form */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <Send className="h-6 w-6 text-primary" />
-                <span>Envie uma Mensagem</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm font-medium mb-2 block">Nome *</label>
-                    <Input
-                      placeholder="Seu nome completo"
-                      value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium mb-2 block">Telefone *</label>
-                    <Input
-                      placeholder="(11) 99999-9999"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium mb-2 block">E-mail *</label>
-                  <Input
-                    type="email"
-                    placeholder="seu@email.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium mb-2 block">Objetivo Principal</label>
-                  <select 
-                    className="w-full p-3 border border-input rounded-md bg-background"
-                    value={formData.goal}
-                    onChange={(e) => setFormData({...formData, goal: e.target.value})}
-                  >
-                    <option value="">Selecione seu objetivo</option>
-                    <option value="emagrecimento">Emagrecimento</option>
-                    <option value="hipertrofia">Ganho de Massa Muscular</option>
-                    <option value="condicionamento">Condicionamento Físico</option>
-                    <option value="reabilitacao">Reabilitação</option>
-                    <option value="outro">Outro</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium mb-2 block">Mensagem</label>
-                  <Textarea
-                    placeholder="Conte um pouco sobre seus objetivos, experiência anterior com exercícios, disponibilidade de horários..."
-                    rows={4}
-                    value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
-                  />
-                </div>
-
-                <Button type="submit" className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90">
-                  Enviar Mensagem
-                  <Send className="ml-2 h-4 w-4" />
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-
-          {/* Additional Info */}
-          <div className="space-y-6">
+        <div className="space-y-8 mb-20">
+          {/* First row - Schedule and Quick Actions */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Schedule */}
             <Card>
               <CardHeader>
@@ -244,7 +156,10 @@ const Contact = () => {
                 </Button>
               </CardContent>
             </Card>
+          </div>
 
+          {/* Second row - FAQ */}
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-8">
             {/* FAQ Quick */}
             <Card>
               <CardHeader>
@@ -270,70 +185,7 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Location Map Placeholder */}
-        <section className="mb-20">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <MapPin className="h-6 w-6 text-primary" />
-                <span>Localização</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="aspect-video bg-muted rounded-lg overflow-hidden relative">
-                {/* Opção 1: Imagem estática do mapa */}
-                <img 
-                  src="/images/mapa-academia-corpus.jpg" 
-                  alt="Localização da Academia Corpus Quality Unidade 2 - Tupã, SP"
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    // Se a imagem não carregar, mostra o iframe como fallback
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    const iframe = target.nextElementSibling as HTMLIFrameElement;
-                    if (iframe) iframe.style.display = 'block';
-                  }}
-                />
-                
-                {/* Opção 2: Iframe do Google Maps (fallback) */}
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.1234567890123!2d-50.51345678901234!3d-21.98765432109876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDU5JzE1LjYiUyA1MMKwMzAnNDguNSJX!5e0!3m2!1spt-BR!2sbr!4v1234567890123"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, display: 'none' }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Localização da Academia Corpus Quality - Tupã, SP"
-                ></iframe>
-                
-                {/* Overlay com informações */}
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg">
-                  <div className="flex items-center space-x-2">
-                    <MapPin className="h-5 w-5 text-primary" />
-                    <div>
-                      <p className="font-semibold text-sm">Academia Corpus Quality</p>
-                      <p className="text-xs text-muted-foreground">Unidade 2 - Tupã, SP</p>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Botão para abrir no Google Maps */}
-                <div className="absolute bottom-4 right-4">
-                  <Button 
-                    size="sm" 
-                    variant="secondary"
-                    onClick={() => window.open('https://maps.google.com/?q=Academia+Corpus+Quality+Tupã+SP', '_blank')}
-                    className="bg-white/90 backdrop-blur-sm hover:bg-white"
-                  >
-                    <MapPin className="h-4 w-4 mr-1" />
-                    Abrir no Maps
-                  </Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
+
 
         {/* CTA */}
         <section className="text-center bg-gradient-to-r from-primary to-secondary rounded-2xl p-12">

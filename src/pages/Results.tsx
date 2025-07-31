@@ -6,80 +6,38 @@ import { Star, Quote, TrendingUp, Users, Award } from "lucide-react";
 const Results = () => {
   const beforeAfterResults = [
     {
-      name: "Maria Silva",
-      age: 32,
-      goal: "Emagrecimento",
-      result: "Perdeu 15kg em 4 meses",
+      name: "Vinicius Fuzinelli",
+      age: 22,
+      goal: "Emagrecimento", 
+      goal2: "Hipertrofia",
+      result: "Perdeu 10kg em 4 meses",
       testimony: "Nunca imaginei que conseguiria! O Bruno me ajudou a mudar completamente minha relação com a comida e exercícios.",
-      stats: { weight: "-15kg", bf: "-8%", muscle: "+2kg" }
+      stats: { weight: "-10kg", bf: "-8%", muscle: "+3kg" }
     },
     {
-      name: "João Santos", 
-      age: 28,
+      name: "Eduardo", 
+      age: 17,
       goal: "Hipertrofia",
-      result: "Ganhou 8kg de massa muscular",
-      testimony: "O treino personalizado fez toda diferença. Em 6 meses ganhei mais massa do que em 2 anos treinando sozinho.",
-      stats: { weight: "+8kg", bf: "-3%", muscle: "+8kg" }
+      goal2: "Emagrecimento",
+      result: "Perdeu 7kg em 4 meses",
+      testimony: "O treino personalizado fez toda diferença! Em 4 meses perdi mais de 7 kg",
+      stats: { weight: "-7kg", bf: "-3%", muscle: "+2kg" }
     },
     {
-      name: "Ana Costa",
-      age: 45,
-      goal: "Condicionamento",
+      name: "João Paulo",
+      age: 40,
+      goal: "Emagrecimento",
       result: "Melhorou 80% do condicionamento",
-      testimony: "Voltei a me sentir jovem! Subo escadas sem cansar e tenho muito mais energia no dia a dia.",
-      stats: { weight: "-5kg", bf: "-6%", muscle: "+3kg" }
+      testimony: "Em pouco tempo, consegui perder 4kg e melhorar minha saúde.",
+      stats: { weight: "-4kg", bf: "-6%", muscle: "+1kg" }
     }
   ];
 
-  const testimonials = [
-    {
-      name: "Carlos Roberto",
-      role: "Empresário",
-      content: "O Bruno transformou minha vida. Perdi 20kg e ganhei saúde, disposição e autoestima. Recomendo de olhos fechados!",
-      rating: 5,
-      result: "20kg perdidos"
-    },
-    {
-      name: "Fernanda Lima",
-      role: "Médica",
-      content: "Profissional excepcional! Consegui conciliar a correria da medicina com exercícios eficientes. Resultado surpreendente!",
-      rating: 5,
-      result: "12kg perdidos"
-    },
-    {
-      name: "Roberto Silva",
-      role: "Aposentado",
-      content: "Aos 60 anos achei que era tarde demais. O Bruno me provou o contrário! Hoje me sinto 20 anos mais jovem.",
-      rating: 5,
-      result: "Melhor qualidade de vida"
-    },
-    {
-      name: "Juliana Souza",
-      role: "Professora",
-      content: "Depois da gravidez estava com baixa autoestima. O Bruno me ajudou a recuperar minha forma e confiança!",
-      rating: 5,
-      result: "Forma pré-gravidez"
-    },
-    {
-      name: "Diego Martins",
-      role: "Advogado",
-      content: "Treino online perfeito para minha agenda corrida. Resultados incríveis mesmo treinando em casa!",
-      rating: 5,
-      result: "8kg de músculo"
-    },
-    {
-      name: "Patricia Oliveira",
-      role: "Dentista",
-      content: "O acompanhamento nutricional foi fundamental. Aprendi a comer melhor e os resultados apareceram rapidamente!",
-      rating: 5,
-      result: "18kg perdidos"
-    }
-  ];
+
 
   const stats = [
-    { icon: Users, value: "100+", label: "Alunos Transformados" },
-    { icon: TrendingUp, value: "95%", label: "Taxa de Sucesso" },
-    { icon: Award, value: "10", label: "Na musculação" }
+    { icon: Users, value: "50+", label: "Alunos Transformados" },
+    { icon: TrendingUp, value: "95%", label: "Taxa de Sucesso" }
   ];
 
   return (
@@ -103,7 +61,7 @@ const Results = () => {
         </section>
 
         {/* Stats */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 max-w-4xl mx-auto">
           {stats.map((stat, index) => (
             <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow">
               <CardContent className="pt-6">
@@ -164,6 +122,7 @@ const Results = () => {
                     <div className="p-8">
                       <div className="flex items-center space-x-3 mb-4">
                         <Badge variant="outline">{result.goal}</Badge>
+                        {result.goal2 && <Badge variant="outline">{result.goal2}</Badge>}
                         <span className="text-sm text-muted-foreground">{result.age} anos</span>
                       </div>
                       <h3 className="text-2xl font-bold mb-2">{result.name}</h3>
@@ -180,40 +139,7 @@ const Results = () => {
           </div>
         </section>
 
-        {/* Testimonials Grid */}
-        <section className="mb-20">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            O que meus{" "}
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              alunos dizem
-            </span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
-                <CardContent className="pt-6">
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground mb-4 italic">
-                    "{testimonial.content}"
-                  </p>
-                  <div className="flex justify-between items-end">
-                    <div>
-                      <div className="font-semibold">{testimonial.name}</div>
-                      <div className="text-sm text-muted-foreground">{testimonial.role}</div>
-                    </div>
-                    <Badge className="bg-primary/10 text-primary">
-                      {testimonial.result}
-                    </Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
+
 
         {/* Success Factors */}
         <section className="mb-20 bg-muted/30 rounded-2xl p-12">
@@ -259,26 +185,16 @@ const Results = () => {
             Sua transformação pode ser a próxima!
           </h2>
           <p className="text-white/90 mb-8 text-lg">
-            Agende sua avaliação gratuita e dê o primeiro passo para seus resultados
+            Agende sua avaliação e dê o primeiro passo para seus resultados
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              variant="secondary" 
-              className="bg-white text-primary hover:bg-white/90"
-              onClick={() => window.open('https://wa.me/5514999031513?text=Olá,%20Bruno!%20Quero%20me%20transformar%20e%20conhecer%20seus%20serviços.', '_blank')}
-            >
-              Quero Me Transformar
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-primary"
-              onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
-            >
-              Ver Mais Resultados
-            </Button>
-          </div>
+          <Button 
+            size="lg" 
+            variant="secondary" 
+            className="bg-white text-primary hover:bg-white/90"
+            onClick={() => window.open('https://wa.me/5514999031513?text=Olá,%20Bruno!%20Quero%20me%20transformar%20e%20conhecer%20seus%20serviços.', '_blank')}
+          >
+            Quero Me Transformar
+          </Button>
         </section>
       </div>
     </div>

@@ -66,12 +66,6 @@ const Services = () => {
       title: "Sessão Avulsa",
       description: "Treino individual sem compromisso mensal",
       price: "R$ 60"
-    },
-    {
-      icon: Zap,
-      title: "Treino em Dupla",
-      description: "Treine com um amigo e economize",
-      price: "R$ 40/pessoa"
     }
   ];
 
@@ -236,7 +230,7 @@ const Services = () => {
               Adicionais
             </span>
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {additionalServices.map((service, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardHeader>
@@ -304,26 +298,16 @@ const Services = () => {
             Pronto para começar?
           </h2>
           <p className="text-white/90 mb-8 text-lg">
-            Agende sua avaliação gratuita e vamos definir o melhor plano para você
+            Converse comigo e vamos definir o melhor plano para você!
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              variant="secondary" 
-              className="bg-white text-primary hover:bg-white/90"
-              onClick={() => window.open('https://wa.me/5514999031513?text=Olá,%20Bruno!%20Gostaria%20de%20agendar%20uma%20avaliação%20gratuita.', '_blank')}
-            >
-              Agendar Avaliação Gratuita
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-primary"
-              onClick={() => window.open('https://wa.me/5514999031513?text=Olá,%20Bruno!%20Gostaria%20de%20conversar%20sobre%20seus%20serviços.', '_blank')}
-            >
-              Falar no WhatsApp
-            </Button>
-          </div>
+          <Button 
+            size="lg" 
+            variant="secondary" 
+            className="bg-white text-primary hover:bg-white/90"
+            onClick={() => window.open('https://wa.me/5514999031513?text=Olá,%20Bruno!%20Gostaria%20de%20conversar%20sobre%20seus%20serviços.', '_blank')}
+          >
+            Falar no WhatsApp
+          </Button>
         </section>
       </div>
     </div>
