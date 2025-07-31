@@ -1,0 +1,7 @@
+# Este é um arquivo placeholder para a imagem do mapa
+# Para usar a imagem real do mapa que você mostrou:
+# 1. Salve a imagem como "mapa-academia-corpus.jpg" 
+# 2. Coloque na pasta public/images/
+# 3. O código já está configurado para carregar esta imagem
+
+# Alternativamente, você pode usar o iframe do Google Maps que já está implementado 
