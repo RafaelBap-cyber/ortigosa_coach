@@ -122,7 +122,10 @@ const Services = () => {
                       ))}
                     </div>
 
-                    <Button className={`bg-gradient-to-r ${service.color} hover:opacity-90`}>
+                    <Button 
+                      className={`bg-gradient-to-r ${service.color} hover:opacity-90`}
+                      onClick={() => window.open(`https://wa.me/5514999031513?text=Olá,%20Bruno!%20Gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20${encodeURIComponent(service.title)}`, '_blank')}
+                    >
                       Quero Este Serviço
                     </Button>
                   </div>
@@ -189,7 +192,10 @@ const Services = () => {
                       ))}
                     </div>
 
-                    <Button className={`bg-gradient-to-r ${service.color} hover:opacity-90`}>
+                    <Button 
+                      className={`bg-gradient-to-r ${service.color} hover:opacity-90`}
+                      onClick={() => window.open(`https://wa.me/5514999031513?text=Olá,%20Bruno!%20Gostaria%20de%20saber%20mais%20sobre%20o%20serviço%20de%20${encodeURIComponent(service.title)}`, '_blank')}
+                    >
                       Quero Este Serviço
                     </Button>
                   </div>
@@ -246,7 +252,11 @@ const Services = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">{service.description}</p>
-                  <Button variant="outline" className="w-full mt-4">
+                  <Button 
+                    variant="outline" 
+                    className="w-full mt-4"
+                    onClick={() => window.open(`https://wa.me/5514999031513?text=Olá,%20Bruno!%20Gostaria%20de%20agendar%20uma%20sessão%20de%20${encodeURIComponent(service.title)}`, '_blank')}
+                  >
                     Agendar
                   </Button>
                 </CardContent>

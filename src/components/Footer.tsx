@@ -27,7 +27,7 @@ const Footer = () => {
               <Button 
                 size="icon" 
                 variant="outline"
-                onClick={() => window.open('https://wa.me/551499903-1513', '_blank')}
+                onClick={() => window.open('https://wa.me/5514999031513?text=Olá,%20Bruno!%20Gostaria%20de%20conversar%20sobre%20treinamento%20personalizado.', '_blank')}
               >
                 <MessageCircle className="h-4 w-4" />
               </Button>
