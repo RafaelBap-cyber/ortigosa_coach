@@ -7,7 +7,7 @@ const Home = () => {
   const stats = [
     { icon: Users, value: "50+", label: "Alunos Transformados" },
     { icon: Trophy, value: "95%", label: "Taxa de Sucesso" },
-    { icon: Target, value: "7+", label: "Anos de Experiência" },
+    { icon: Target, value: "7+", label: "Na musuclação" },
   ];
 
   const services = [
